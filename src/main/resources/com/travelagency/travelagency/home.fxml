@@ -4,20 +4,42 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.travelagency.travelagency.controllers.HomeController">
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.travelagency.travelagency.controllers.HomeController"
+            prefWidth="1000" prefHeight="600"
+            style="-fx-font-family: 'Segoe UI', sans-serif;">
+
+    <!-- Top header -->
     <top>
-        <VBox alignment="CENTER" spacing="5" style="-fx-padding: 20;">
-            <Label text="🌴 SunTravel Agency" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #008CBA;"/>
-            <Label text="Explorez le monde avec nous !" style="-fx-font-size: 16px; -fx-text-fill: #555;"/>
+        <VBox alignment="CENTER" spacing="5" style="-fx-padding: 20; -fx-background-color: linear-gradient(to right, #00c6ff, #0072ff);">
+            <Label text="🌴 SunTravel Agency" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            <Label text="Explorez le monde avec nous !" style="-fx-font-size: 16px; -fx-text-fill: #f0f0f0;"/>
         </VBox>
     </top>
+
+    <!-- Left sidebar -->
+    <left>
+        <VBox spacing="10" style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-border-width: 0 1 0 0; -fx-border-color: #ddd;">
+            <Label text="Menu" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #0072ff;"/>
+            <TreeView fx:id="sidebarTree" prefWidth="200"
+                      style="-fx-background-color: transparent; -fx-border-width: 0;"/>
+        </VBox>
+    </left>
+
+    <!-- Main content -->
     <center>
-        <VBox alignment="CENTER" spacing="15" style="-fx-padding: 20;">
-            <ImageView fx:id="banner" fitWidth="700" preserveRatio="true"/>
+        <VBox alignment="TOP_CENTER" spacing="20" style="-fx-padding: 20;">
+            <!-- Banner avec ombre -->
+            <StackPane style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 3);">
+                <ImageView fx:id="banner" fitWidth="700" preserveRatio="true"/>
+            </StackPane>
+
             <Label text="✈️ Découvrez nos offres exclusives : Séjours, circuits culturels, aventures, voyages de luxe !"
-                   wrapText="true" style="-fx-font-size: 15px; -fx-text-fill: #333;"/>
-            <Button text="🚪 Déconnexion" onAction="#handleLogout"
-                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 10;"/>
+                   wrapText="true" style="-fx-font-size: 15px; -fx-text-fill: #333; -fx-text-alignment: center;"/>
+
+            <Button fx:id="logoutButton" text="🚪 Déconnexion" onAction="#handleLogout"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 30; -fx-background-radius: 20;"/>
         </VBox>
     </center>
+
 </BorderPane>
