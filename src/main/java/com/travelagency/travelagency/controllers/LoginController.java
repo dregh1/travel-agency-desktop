@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class LoginController {
 
@@ -16,6 +18,15 @@ public class LoginController {
     @FXML
     private Label messageLabel;
 
+    @FXML
+    private ImageView banner;
+
+    @FXML
+    public void initialize() {
+        banner.setImage(new Image(
+                getClass().getResource("/com/travelagency/travelagency/01globaltravel.png").toExternalForm()
+        ));
+    }
     @FXML
     private void handleLogin() {
         String user = usernameField.getText();
