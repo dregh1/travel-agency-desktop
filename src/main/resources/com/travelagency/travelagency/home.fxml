@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.travelagency.travelagency.controllers.HomeController">
+    <top>
+        <VBox alignment="CENTER" spacing="5" style="-fx-padding: 20;">
+            <Label text="🌴 SunTravel Agency" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #008CBA;"/>
+            <Label text="Explorez le monde avec nous !" style="-fx-font-size: 16px; -fx-text-fill: #555;"/>
+        </VBox>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="15" style="-fx-padding: 20;">
+            <ImageView fx:id="banner" fitWidth="700" preserveRatio="true"/>
+            <Label text="✈️ Découvrez nos offres exclusives : Séjours, circuits culturels, aventures, voyages de luxe !"
+                   wrapText="true" style="-fx-font-size: 15px; -fx-text-fill: #333;"/>
+            <Button text="🚪 Déconnexion" onAction="#handleLogout"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 10;"/>
+        </VBox>
+    </center>
+</BorderPane>

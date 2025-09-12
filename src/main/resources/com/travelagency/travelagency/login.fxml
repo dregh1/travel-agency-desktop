@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.travelagency.travelagency.controllers.LoginController"
+            prefWidth="800" prefHeight="600"
+            style="-fx-background-color: linear-gradient(to bottom, #e0f7fa, #ffffff);">
+
+    <!-- Centrer le formulaire -->
+    <center>
+        <VBox alignment="CENTER" spacing="15"
+              maxWidth="300"
+              style="-fx-background-color: white; -fx-padding: 30; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);">
+
+            <Label text="🔐 Connexion"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #008CBA;"/>
+
+            <Label text="Identifiant :"/>
+            <TextField fx:id="usernameField" promptText="Entrez votre identifiant"/>
+
+            <Label text="Mot de passe :"/>
+            <PasswordField fx:id="passwordField" promptText="Entrez votre mot de passe"/>
+
+            <Button text="Se connecter" onAction="#handleLogin"
+                    style="-fx-background-color: #008CBA; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 20;"/>
+
+            <Label fx:id="messageLabel" textFill="red"/>
+
+        </VBox>
+    </center>
+</BorderPane>
