@@ -6,4 +6,8 @@ module com.travelagency.travelagency {
 
     opens com.travelagency.travelagency to javafx.fxml;
     exports com.travelagency.travelagency;
+
+    // 🔑 Ouvrir les controllers à FXMLLoader
+    opens com.travelagency.travelagency.controllers to javafx.fxml;
+    exports com.travelagency.travelagency.controllers;
 }
