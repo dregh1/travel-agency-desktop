@@ -2,12 +2,13 @@ package com.travelagency.travelagency.controllers;
 
 import com.travelagency.travelagency.TravelAgencyApp;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 
 public class HomeController {
 
@@ -18,6 +19,9 @@ public class HomeController {
     private Button logoutButton;
 
     @FXML
+    private BorderPane rootPane;
+
+    @FXML
     public void initialize() {
         // ===== Sidebar TreeView =====
         TreeItem<String> root = new TreeItem<>("Root");
@@ -26,7 +30,8 @@ public class HomeController {
         TreeItem<String> gestionBackOffice = new TreeItem<>("Gestion interne & Back-office");
         gestionBackOffice.getChildren().addAll(
                 new TreeItem<>("Gestion de stock"),
-                new TreeItem<>("Comptabilité")
+                new TreeItem<>("Comptabilité"),
+                new TreeItem<>("Templating")
         );
 
         TreeItem<String> support = new TreeItem<>("Support & Service client interne");
@@ -53,6 +58,27 @@ public class HomeController {
             }
         });
 
+        // ===== TreeView Click Listener =====
+        sidebarTree.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                String value = newVal.getValue();
+                System.out.println("Menu sélectionné: " + value);
+
+                switch (value) {
+                    case "Templating":
+                        loadCenterContent("/com/travelagency/travelagency/views/templating.fxml");
+                        break;
+                    case "Gestion de stock":
+//                        loadCenterContent("/com/travelagency/travelagency/views/stock.fxml");
+                        break;
+//                    case "Comptabilité":
+//                        loadCenterContent("/com/travelagency/travelagency/views/comptabilite.fxml");
+//                        break;
+                    // ajouter d'autres items si besoin
+                }
+            }
+        });
+
         // ===== Déconnexion hover =====
         if (logoutButton != null) {
             logoutButton.setOnMouseEntered(e -> logoutButton.setStyle(
@@ -71,6 +97,17 @@ public class HomeController {
     private void handleLogout() {
         try {
             TravelAgencyApp.showLogin();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // ===== méthode pour remplacer le center par une autre vue =====
+    private void loadCenterContent(String fxmlPath) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Node content = loader.load();
+            rootPane.setCenter(content);
         } catch (Exception e) {
             e.printStackTrace();
         }

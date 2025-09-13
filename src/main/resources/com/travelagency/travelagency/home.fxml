@@ -6,6 +6,7 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.travelagency.travelagency.controllers.HomeController"
+            fx:id="rootPane"
             prefWidth="1000" prefHeight="600"
             style="-fx-font-family: 'Segoe UI', sans-serif;">
 
