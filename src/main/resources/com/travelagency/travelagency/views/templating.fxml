@@ -14,7 +14,7 @@
     <ImageView fx:id="previewImage" fitWidth="300" fitHeight="200" preserveRatio="true"
                style="-fx-border-color: #ddd; -fx-border-width: 2;"/>
 
-    <Button text="Choisir une photo" fx:id="btnChooseImage"/>
+    <Button text="Choisir une photo" fx:id="btnChooseImage" onAction="#handleChoosePhoto"/>
 
     <TextField fx:id="descriptionField" promptText="Décrire la photo (max 100 caractères)" maxWidth="400"/>
 
