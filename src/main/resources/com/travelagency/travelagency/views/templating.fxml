@@ -19,7 +19,7 @@
     <TextField fx:id="descriptionField" promptText="Décrire la photo (max 100 caractères)" maxWidth="400"/>
 
 
-    <Button text="Enregistrer"
+    <Button text="Enregistrer" onAction="#handleSave"
             style="-fx-background-color: #0072ff; -fx-text-fill: white; -fx-font-weight: bold;"/>
 
 </VBox>

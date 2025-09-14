@@ -1,6 +1,7 @@
 module com.travelagency.travelagency {
     requires javafx.controls;
     requires javafx.fxml;
+    requires com.fasterxml.jackson.databind;
 
     requires org.kordamp.bootstrapfx.core;
 
