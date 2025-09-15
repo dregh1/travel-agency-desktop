@@ -22,6 +22,10 @@ import java.util.*;
 
 public class TemplatingController {
     @FXML
+    private TextField destinationField;
+    @FXML
+    private TextField amountField;
+    @FXML
     private TilePane templatesContainer;
 
     @FXML
@@ -102,6 +106,9 @@ public class TemplatingController {
             Map<String, String> entry = new HashMap<>();
             entry.put("file", destFile.getPath());
             entry.put("description", desc);
+
+            String amount = amountField.getText(); // ton TextField pour le montant
+            entry.put("amount", amount);
             templates.add(entry);
 
             // Sauvegarder le JSON
@@ -135,16 +142,22 @@ public class TemplatingController {
                 for (Map<String, String> entry : templates) {
                     String path = entry.get("file");
                     String desc = entry.get("description");
+                    String amount = entry.getOrDefault("amount", "0"); // récupère amount
 
                     ImageView iv = new ImageView(new Image(new File(path).toURI().toString()));
                     iv.setFitWidth(150);
                     iv.setPreserveRatio(true);
 
-                    Label label = new Label(desc);
-                    label.setWrapText(true);
-                    label.setMaxWidth(150);
+                    Label labelDesc = new Label(desc);
+                    labelDesc.setWrapText(true);
+                    labelDesc.setMaxWidth(150);
 
-                    VBox itemBox = new VBox(iv, label);
+                    Label labelAmount = new Label("Montant : " + amount);
+                    labelAmount.setWrapText(true);
+                    labelAmount.setMaxWidth(150);
+                    labelAmount.setStyle("-fx-font-weight: normal; -fx-text-fill: green;");
+
+                    VBox itemBox = new VBox(iv, labelDesc, labelAmount);
                     itemBox.setSpacing(5);
                     itemBox.setStyle("-fx-border-color: #ddd; -fx-padding: 5; -fx-background-color: #f9f9f9;");
 
@@ -155,6 +168,7 @@ public class TemplatingController {
             }
         }
     }
+
 
 
 }
