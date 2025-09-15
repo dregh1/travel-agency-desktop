@@ -8,22 +8,37 @@
       fx:controller="com.travelagency.travelagency.controllers.TemplatingController"
       alignment="CENTER" spacing="15" style="-fx-padding: 20;">
 
-    <Label text="📸 Ajouter une photo d'endroit"
+    <Label text="Ajout d'offre"
            style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
 
-    <ImageView fx:id="previewImage" fitWidth="300" fitHeight="200" preserveRatio="true"
-               style="-fx-border-color: #ddd; -fx-border-width: 2;"/>
+    <HBox spacing="20" alignment="CENTER">
+        <!-- Colonne de gauche : image + bouton choisir -->
+        <VBox spacing="10" alignment="TOP_LEFT">
+            <ImageView fx:id="previewImage" fitWidth="300" fitHeight="200" preserveRatio="true"
+                       style="-fx-border-color: #ddd; -fx-border-width: 2;"/>
+            <Button text="Choisir une photo 📸" fx:id="btnChooseImage" onAction="#handleChoosePhoto"/>
+        </VBox>
 
-    <Button text="Choisir une photo" fx:id="btnChooseImage" onAction="#handleChoosePhoto"/>
+        <!-- Colonne de droite : TextField + bouton enregistrer -->
+        <VBox spacing="10" alignment="TOP_LEFT">
+            <TextField fx:id="destinationField" promptText="Destination" prefWidth="600" />
+            <TextField fx:id="descriptionField" prefHeight="115" promptText="Description (max 100 caractères)"  prefWidth="600"/>
+            <TextField fx:id="amountField" promptText="prix" maxWidth="200"/>
+            <Button text="Enregistrer" onAction="#handleSave"
+                    style="-fx-background-color: #0072ff; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </VBox>
+    </HBox>
 
-    <TextField fx:id="descriptionField" promptText="Décrire la photo (max 100 caractères)" maxWidth="400"/>
+    <VBox style="-fx-padding: 20 0 0 0;" >
+        <HBox alignment="CENTER_LEFT">
+            <Label text="Liste des offres récement enregistrées"
+                   style="-fx-font-size: 14px; -fx-font-weight: normal;"
+            />
+        </HBox>
+
+    </VBox>
 
 
-    <Button text="Enregistrer" onAction="#handleSave"
-            style="-fx-background-color: #0072ff; -fx-text-fill: white; -fx-font-weight: bold;"/>
-
-    <Label text="Liste des offres récement enregistrées"
-           style="-fx-font-size: 18px; -fx-font-weight: bold;" />
 
     <ScrollPane fitToWidth="true" prefHeight="300" minHeight="200" maxHeight="200">
         <TilePane fx:id="templatesContainer" hgap="10" vgap="10" prefColumns="3"

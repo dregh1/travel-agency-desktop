@@ -1,7 +1,10 @@
 [ {
   "file" : "templates\\0b30ac4e-75df-4de5-8f6b-b63b02e30516-01_antalaha.png",
-  "description" : "Antalaha"
+  "description" : "Antalaha",
+  "amount": "150 000"
+
 }, {
-  "file" : "templates\\cafcd19b-f91b-4393-b038-c050f5f0de70-04_morondava.jpg",
-  "description" : "Morondava"
+  "file" : "templates\\0e101105-2ced-4261-867d-5cb45c147f03-03_Diego-suarez.jpg",
+  "description" : "Diego-suarez",
+  "amount": "120 000"
 } ]
