@@ -1,0 +1,17 @@
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.travelagency.travelagency.controllers.ReservationController">
+    <children>
+        <TableView fx:id="clientsTable" layoutX="20" layoutY="20" prefWidth="1000" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="colNom" text="Nom" prefWidth="200"/>
+                <TableColumn fx:id="colDestination" text="Destination" prefWidth="120"/>
+                <TableColumn fx:id="colDepartureDate" text="Départ" prefWidth="100"/>
+                <TableColumn fx:id="colPaiement" text="État Paiement" prefWidth="120"/>
+                <TableColumn fx:id="colNbPersonnes" text="Nb Personnes" prefWidth="100"/>
+                <TableColumn fx:id="colActions" text="Actions" prefWidth="140"/>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

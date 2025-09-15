@@ -22,4 +22,11 @@
     <Button text="Enregistrer" onAction="#handleSave"
             style="-fx-background-color: #0072ff; -fx-text-fill: white; -fx-font-weight: bold;"/>
 
+    <Label text="Liste des offres récement enregistrées"
+           style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+    <ScrollPane fitToWidth="true" prefHeight="300" minHeight="200" maxHeight="200">
+        <TilePane fx:id="templatesContainer" hgap="10" vgap="10" prefColumns="3"
+                  style="-fx-padding: 10;"/>
+    </ScrollPane>
 </VBox>
