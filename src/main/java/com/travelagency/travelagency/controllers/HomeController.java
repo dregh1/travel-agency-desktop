@@ -27,12 +27,13 @@ public class HomeController {
         TreeItem<String> root = new TreeItem<>("Root");
         root.setExpanded(true);
 
-        TreeItem<String> gestionBackOffice = new TreeItem<>("Gestion interne & Back-office");
+        TreeItem<String> gestionBackOffice = new TreeItem<>("Back-office");
         gestionBackOffice.getChildren().addAll(
-                new TreeItem<>("Gestion de stock"),
-                new TreeItem<>("Comptabilité"),
-                new TreeItem<>("Templating")
+                new TreeItem<>("Gestion des réservations"),
+                new TreeItem<>("Gestion offres")
         );
+
+
 
         TreeItem<String> support = new TreeItem<>("Support & Service client interne");
 
@@ -65,11 +66,11 @@ public class HomeController {
                 System.out.println("Menu sélectionné: " + value);
 
                 switch (value) {
-                    case "Templating":
+                    case "Gestion offres":
                         loadCenterContent("/com/travelagency/travelagency/views/templating.fxml");
                         break;
-                    case "Gestion de stock":
-//                        loadCenterContent("/com/travelagency/travelagency/views/stock.fxml");
+                    case "Gestion des réservations":
+                        loadCenterContent("/com/travelagency/travelagency/views/stock.fxml");
                         break;
 //                    case "Comptabilité":
 //                        loadCenterContent("/com/travelagency/travelagency/views/comptabilite.fxml");

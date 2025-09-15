@@ -4,9 +4,12 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 
@@ -18,6 +21,9 @@ import java.nio.file.StandardCopyOption;
 import java.util.*;
 
 public class TemplatingController {
+    @FXML
+    private TilePane templatesContainer;
+
     @FXML
     private Button btnChooseImage;
 
@@ -32,6 +38,11 @@ public class TemplatingController {
 
     private static final String TEMPLATE_DIR = "templates";
     private static final String TEMPLATE_JSON = "templates.json";
+
+    @FXML
+    public void initialize() {
+        loadTemplates(); // Charger les templates existants au démarrage
+    }
 
     @FXML
     private void handleChoosePhoto() {
@@ -102,9 +113,48 @@ public class TemplatingController {
             descriptionField.clear();
             previewImage.setImage(null);
             selectedFile = null;
+            loadTemplates();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    private void loadTemplates() {
+        ObjectMapper mapper = new ObjectMapper();
+        File jsonFile = new File(TEMPLATE_JSON);
+        templatesContainer.getChildren().clear();
+
+        if (jsonFile.exists() && jsonFile.length() > 0) {
+            try {
+                List<Map<String, String>> templates = mapper.readValue(
+                        jsonFile,
+                        new TypeReference<List<Map<String, String>>>() {}
+                );
+
+                for (Map<String, String> entry : templates) {
+                    String path = entry.get("file");
+                    String desc = entry.get("description");
+
+                    ImageView iv = new ImageView(new Image(new File(path).toURI().toString()));
+                    iv.setFitWidth(150);
+                    iv.setPreserveRatio(true);
+
+                    Label label = new Label(desc);
+                    label.setWrapText(true);
+                    label.setMaxWidth(150);
+
+                    VBox itemBox = new VBox(iv, label);
+                    itemBox.setSpacing(5);
+                    itemBox.setStyle("-fx-border-color: #ddd; -fx-padding: 5; -fx-background-color: #f9f9f9;");
+
+                    templatesContainer.getChildren().add(itemBox);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 }
