@@ -70,7 +70,7 @@ public class HomeController {
                         loadCenterContent("/com/travelagency/travelagency/views/templating.fxml");
                         break;
                     case "Gestion des réservations":
-                        loadCenterContent("/com/travelagency/travelagency/views/stock.fxml");
+                        loadCenterContent("/com/travelagency/travelagency/views/reservation.fxml");
                         break;
 //                    case "Comptabilité":
 //                        loadCenterContent("/com/travelagency/travelagency/views/comptabilite.fxml");
