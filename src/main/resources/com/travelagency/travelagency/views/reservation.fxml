@@ -1,17 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
+
+<?import javafx.scene.control.Button?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.travelagency.travelagency.controllers.ReservationController">
     <children>
-        <TableView fx:id="clientsTable" layoutX="20" layoutY="20" prefWidth="1000" prefHeight="400">
-            <columns>
-                <TableColumn fx:id="colNom" text="Nom" prefWidth="200"/>
-                <TableColumn fx:id="colDestination" text="Destination" prefWidth="120"/>
-                <TableColumn fx:id="colDepartureDate" text="Départ" prefWidth="100"/>
-                <TableColumn fx:id="colPaiement" text="État Paiement" prefWidth="120"/>
-                <TableColumn fx:id="colNbPersonnes" text="Nb Personnes" prefWidth="100"/>
-                <TableColumn fx:id="colActions" text="Actions" prefWidth="140"/>
-            </columns>
-        </TableView>
+        <VBox layoutX="20" layoutY="20" spacing="10">
+
+            <!-- FILTRE -->
+            <HBox spacing="20" alignment="CENTER_LEFT">
+                <Label text="Destination:"/>
+                <ComboBox fx:id="filterDestination" prefWidth="150"/>
+
+                <Label text="Départ:"/>
+                <DatePicker fx:id="filterDateDeparture" prefWidth="120"/>
+
+                <Label text="Nom:"/>
+                <TextField fx:id="filterName" promptText="Nom à chercher" prefWidth="150"/>
+            </HBox>
+
+            <!-- TABLEAU -->
+            <TableView fx:id="clientsTable" prefWidth="1000" prefHeight="400">
+                <columns>
+                    <TableColumn fx:id="colNom" text="Nom" prefWidth="200"/>
+                    <TableColumn fx:id="colDestination" text="Destination" prefWidth="120"/>
+                    <TableColumn fx:id="colDepartureDate" text="Départ" prefWidth="100"/>
+                    <TableColumn fx:id="colPaiement" text="État Paiement" prefWidth="120"/>
+                    <TableColumn fx:id="colNbPersonnes" text="Nb Personnes" prefWidth="100"/>
+                    <TableColumn fx:id="colActions" text="Actions" prefWidth="140"/>
+                </columns>
+            </TableView>
+            <!-- PAGINATION -->
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="⏮ Précédent" fx:id="btnPrev"/>
+                <Label fx:id="lblPage" text="Page 1"/>
+                <Button text="Suivant ⏭" fx:id="btnNext"/>
+            </HBox>
+        </VBox>
     </children>
 </AnchorPane>

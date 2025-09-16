@@ -14,6 +14,12 @@ import java.time.format.DateTimeFormatter;
 
 public class ReservationController {
     @FXML
+    private ComboBox filterDestination;
+    @FXML
+    private DatePicker filterDateDeparture;
+    @FXML
+    private TextField filterName;
+    @FXML
     private TableView<Reservation> clientsTable;
     @FXML
     private TableColumn<Reservation, String> colDepartureDate;
