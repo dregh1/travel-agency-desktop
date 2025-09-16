@@ -27,6 +27,11 @@ public class HomeController {
         TreeItem<String> root = new TreeItem<>("Root");
         root.setExpanded(true);
 
+        TreeItem<String> statistiques = new TreeItem<>("Statistiques");
+        statistiques.getChildren().addAll(
+                new TreeItem<>("Clients")
+        );
+
         TreeItem<String> gestionBackOffice = new TreeItem<>("Back-office");
         gestionBackOffice.getChildren().addAll(
                 new TreeItem<>("Gestion des réservations"),
@@ -37,7 +42,7 @@ public class HomeController {
 
         TreeItem<String> support = new TreeItem<>("Support & Service client interne");
 
-        root.getChildren().addAll(gestionBackOffice, support);
+        root.getChildren().addAll(gestionBackOffice, support, statistiques);
 
         sidebarTree.setRoot(root);
         sidebarTree.setShowRoot(false);
@@ -72,10 +77,9 @@ public class HomeController {
                     case "Gestion des réservations":
                         loadCenterContent("/com/travelagency/travelagency/views/reservation.fxml");
                         break;
-//                    case "Comptabilité":
-//                        loadCenterContent("/com/travelagency/travelagency/views/comptabilite.fxml");
-//                        break;
-                    // ajouter d'autres items si besoin
+                    case "Clients":
+                        loadCenterContent("/com/travelagency/travelagency/views/clients.fxml");
+                        break;
                 }
             }
         });

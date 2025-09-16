@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<?import javafx.scene.chart.PieChart?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.travelagency.travelagency.controllers.ClientController"
+      spacing="20"
+      style="-fx-background-color: #f0f4f7; -fx-padding: 20;">
+
+    <Label text="Liste des Clients 📊 "
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #0072ff;"/>
+
+    <HBox spacing="20" VBox.vgrow="ALWAYS" alignment="TOP_LEFT">
+
+        <VBox spacing="15" HBox.hgrow="ALWAYS">
+            <TableView fx:id="clientsTable" VBox.vgrow="ALWAYS" style="-fx-background-color: white; -fx-border-color: #d0d0d0; -fx-border-radius: 5; -fx-background-radius: 5;">
+                <columns>
+                    <TableColumn fx:id="colNom" text="Nom" prefWidth="200"/>
+                    <TableColumn fx:id="colEmail" text="Email" prefWidth="250"/>
+                    <TableColumn fx:id="colTelephone" text="Téléphone" prefWidth="150"/>
+                    <TableColumn fx:id="colFrequence" text="Fréquence" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <VBox spacing="10" prefWidth="300" style="-fx-background-color: #ffffff; -fx-border-color: #d0d0d0; -fx-border-radius: 5; -fx-background-radius: 5; -fx-padding: 15;">
+            <Label text="Fréquence de Réservation" style="-fx-font-size: 14px; -fx-text-fill: #555;"/>
+            <Separator/>
+
+            <GridPane fx:id="frequenceGrid" hgap="3" vgap="3" alignment="CENTER"/>
+
+            <Separator/>
+
+
+            <Label text="Informations du client" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #555;"/>
+            <Label text="Nom:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="clientNomField" editable="false"/>
+            <Label text="Email:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="clientEmailField" editable="false"/>
+            <Label text="Téléphone:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="clientTelephoneField" editable="false"/>
+
+            <Button text="Ajouter un client VIP" style="-fx-background-color: #0072ff; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </VBox>
+    </HBox>
+</VBox>
